@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework import generics
+from .serializers import ClasaSerializer
+from .models import Clasa
+from django.db import models
 # Create your views here.
 
-def main(request):
-    return HttpResponse("<h1>Salut ba</h1>")
+class ClassView( generics.CreateAPIView ) :
+
+    queryset = Clasa.objects.all()
+    serializer_class = ClasaSerializer

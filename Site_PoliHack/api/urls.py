@@ -1,6 +1,6 @@
-from .views import main
+from .views import ClassView
 from django.urls import path
 
 urlpatterns = [
-    path('home' , main ),
+    path( 'api/' , ClassView.as_view() ),
 ]
